@@ -35,6 +35,30 @@
         <!-- TOTAL -->
         <h4>Total: ₹{{cartService.getTotal()}}</h4>
 
+
+        <!-- <button class="btn btn-light" (click)="getCurrentLocation()">
+            📍 Use Current Location
+        </button> -->
+        <!-- ADDRESS -->
+        <textarea [(ngModel)]="address" placeholder="Enter full address" class="form-control">
+          </textarea>
+
+        <!-- TIMESLOT -->
+        <select [(ngModel)]="timeslot" class="form-control">
+            <option value="">Select Delivery Slot</option>
+            <option>6 AM - 9 AM</option>
+            <option>9 AM - 12 PM</option>
+            <option>4 PM - 6 PM</option>
+            <option>6 PM - 8 PM</option>
+        </select>
+
+
+
+        <div class="summary">
+            <p>Items Total: ₹{{cartService.getTotal()}}</p>
+            <p>Delivery Fee: ₹{{deliveryFee}}</p>
+            <h4>Total: ₹{{cartService.getTotal() + deliveryFee}}</h4>
+        </div>
         <!-- CHECKOUT -->
         <button class="btn btn-success w-100 mt-3" (click)="checkout()">
             Checkout via WhatsApp
