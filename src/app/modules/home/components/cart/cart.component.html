@@ -1,0 +1,14 @@
+<div class="cart">
+    <h3>Cart</h3>
+
+    <div class="cart-bar" *ngIf="cartService.getCart().length">
+
+        <div class="summary">
+            <span>{{cartService.getCart().length}} items</span>
+            <span>₹{{cartService.getTotal()}}</span>
+        </div>
+
+        <button (click)="order()">Place Order</button>
+
+    </div>
+</div>

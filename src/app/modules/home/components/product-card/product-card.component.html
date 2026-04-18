@@ -1,0 +1,15 @@
+<div class="card">
+
+  <div class="img-box">
+    <img [src]="product.image" />
+  </div>
+
+  <div class="info">
+    <h3>{{product.name}}</h3>
+
+    <p class="price">₹{{product.price}} / {{product.unit}}</p>
+
+    <button (click)="addToCart()">ADD</button>
+  </div>
+
+</div>

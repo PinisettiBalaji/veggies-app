@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Tomato",
+    "price": 30,
+    "unit": "kg",
+    "category": "vegetable",
+    "image": "assets/images/tomato.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Onion",
+    "price": 40,
+    "unit": "kg",
+    "category": "vegetable",
+    "image": "assets/images/onion.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Potato",
+    "price": 35,
+    "unit": "kg",
+    "category": "vegetable",
+    "image": "assets/images/potato.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Apple",
+    "price": 120,
+    "unit": "kg",
+    "category": "fruit",
+    "image": "assets/images/apple.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Banana",
+    "price": 50,
+    "unit": "dozen",
+    "category": "fruit",
+    "image": "assets/images/banana.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Orange",
+    "price": 80,
+    "unit": "kg",
+    "category": "fruit",
+    "image": "assets/images/orange.jpg"
+  }
+]
