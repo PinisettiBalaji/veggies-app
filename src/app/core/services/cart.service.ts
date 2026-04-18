@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../shared/models/product';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
 
   cartItems: any[] = [];
 
+
+  private cartSubject = new BehaviorSubject<any[]>([]);
+  cart$ = this.cartSubject.asObservable();
+
+
+  private updateCart() {
+    this.cartSubject.next(this.cartItems);
+  }
   addToCart(product: Product) {
     const item = this.cartItems.find(i => i.id === product.id);
     if (item) {
@@ -13,10 +22,21 @@ export class CartService {
     } else {
       this.cartItems.push({ ...product, qty: 1 });
     }
+    this.updateCart();
   }
 
-  removeItem(id: number) {
-    this.cartItems = this.cartItems.filter(i => i.id !== id);
+  removeItem(product: any) {
+    const item = this.cartItems.find(i => i.id === product.id);
+
+    if (item) {
+      item.qty--;
+
+      if (item.qty === 0) {
+        this.cartItems = this.cartItems.filter(i => i.id !== product.id);
+      }
+    }
+
+    this.updateCart();
   }
 
   getCart() {
@@ -29,5 +49,6 @@ export class CartService {
 
   clearCart() {
     this.cartItems = [];
+    this.updateCart();  // 
   }
 }

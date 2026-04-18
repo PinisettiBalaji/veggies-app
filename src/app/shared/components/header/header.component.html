@@ -1,8 +1,36 @@
-<header class="header">
-  <div class="logo">🥦 FreshMart</div>
+<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top shadow-sm">
 
-  <div class="actions">
-    <span class="location">📍 Amalapuram</span>
-    <span class="cart">🛒</span>
-  </div>
-</header>
+    <!-- BRAND + LOGO -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/logo.png" width="35" height="35" class="mr-2" />
+        <span class="brand-name">FreshMart</span>
+    </a>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- CONTENT -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent" (submit)="$event.preventDefault()">
+
+        <!-- SEARCH -->
+        <form class="form-inline mr-3 w-50">
+            <input class="form-control w-100" type="search" placeholder="Search fruits & vegetables..."
+                (input)="onSearch($event)" />
+        </form>
+
+        <!-- CART -->
+        <button class="btn btn-success position-relative" (click)="goToCart()">
+
+            🛒
+
+            <span class="badge bg-light text-dark position-absolute" style="top:-5px; right:-10px;">
+                {{cartCount}}
+            </span>
+
+        </button>
+
+    </div>
+
+</nav>

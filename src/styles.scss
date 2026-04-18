@@ -1,9 +1,27 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
+@use '@angular/material' as mat;
 
-app-product-list {
-  display: block;
-  margin-top: 70px;
+/* Required */
+@include mat.core();
+
+/* Green Theme */
+$primary: mat.define-palette(mat.$green-palette, 600);
+$accent: mat.define-palette(mat.$light-green-palette, 400);
+$warn: mat.define-palette(mat.$red-palette);
+
+/* Theme config */
+$theme: mat.define-light-theme((color: (primary: $primary,
+                accent: $accent,
+                warn: $warn,
+            )));
+
+/* Apply theme */
+@include mat.all-component-themes($theme);
+
+/* Global styles */
+body {
+    margin: 0;
+
+    padding-top: 70px;
+
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

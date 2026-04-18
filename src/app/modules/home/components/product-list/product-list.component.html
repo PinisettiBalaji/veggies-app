@@ -1,9 +1,29 @@
-<div class="grid">
-  <app-product-card 
-    *ngFor="let p of products" 
-    [product]="p"
-    (add)="add($event)">
-  </app-product-card>
-</div>
+<div class="page">
 
-<app-cart></app-cart>
+  <!-- LEFT SIDE (PRODUCTS) -->
+  <div class="content">
+
+    <div class="top-bar">
+      <mat-chip-listbox [(ngModel)]="selectedCategory">
+        <mat-chip-option value="">All</mat-chip-option>
+        <mat-chip-option value="fruit">Fruits</mat-chip-option>
+        <mat-chip-option value="vegetable">Vegetables</mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-3" *ngFor="let p of filteredProducts">
+          <app-product-card [product]="p"></app-product-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE (CART) -->
+  <div class="cart-sidebar">
+    <app-cart></app-cart>
+  </div>
+
+</div>
