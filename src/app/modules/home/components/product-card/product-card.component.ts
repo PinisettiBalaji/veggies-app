@@ -4,7 +4,8 @@ import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
-  templateUrl: './product-card.component.html'
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
   @Input() product: any;
@@ -26,6 +27,7 @@ export class ProductCardComponent {
     this.qty++;
     this.cartService.addToCart(this.product);
     this.snack.open('Added to cart', 'OK', { duration: 1000 });
+    this.animateToCart(event);
   }
 
   remove() {
@@ -33,5 +35,36 @@ export class ProductCardComponent {
       this.qty--;
       this.cartService.removeItem(this.product);
     }
+  }
+
+  animateToCart(event: any) {
+
+    const img = event.target.closest('.card').querySelector('img');
+    const cartIcon = document.querySelector('.cart-icon');
+
+    if (!img || !cartIcon) return;
+
+    const imgRect = img.getBoundingClientRect();
+    const cartRect = cartIcon.getBoundingClientRect();
+
+    const clone = img.cloneNode(true) as HTMLElement;
+    clone.classList.add('fly-img');
+
+    clone.style.top = imgRect.top + 'px';
+    clone.style.left = imgRect.left + 'px';
+
+    document.body.appendChild(clone);
+
+    setTimeout(() => {
+      clone.style.top = cartRect.top + 'px';
+      clone.style.left = cartRect.left + 'px';
+      clone.style.width = '20px';
+      clone.style.height = '20px';
+      clone.style.opacity = '0.5';
+    }, 10);
+
+    setTimeout(() => {
+      clone.remove();
+    }, 800);
   }
 }

@@ -6,13 +6,15 @@ import { SearchService } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html'
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
 
   products: any[] = [];
   searchText = '';
-  selectedCategory = '';
+  selectedCategory: string = 'all';
+
   filteredProducts: any[] = [];
 
 
@@ -72,13 +74,19 @@ export class ProductListComponent implements OnInit {
   // }
 
 
-  applyFilters() {
-    return this.filteredProducts.filter(p => {
-      return (
-        (!this.selectedCategory || p.category === this.selectedCategory) &&
-        p.name.toLowerCase().includes(this.searchText.toLowerCase())
-      );
-    });
+  setCategory(cat: string) {
+    this.selectedCategory = cat;
+    this.applyFilters();
+  }
 
+  applyFilters() {
+    if (this.selectedCategory === 'all') {
+      this.filteredProducts = [...this.products];
+      return;
+    }
+
+    this.filteredProducts = this.products.filter(p =>
+      p.category === this.selectedCategory
+    );
   }
 }

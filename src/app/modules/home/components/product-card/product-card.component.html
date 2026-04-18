@@ -1,43 +1,38 @@
-<div class="card h-100 shadow-sm">
+<div class="card" [class.active]="qty > 0">
 
-  <img 
-    [src]="product.image"
-    class="card-img-top"
-    alt="{{product.name}}"
-  >
 
-  <div class="card-body d-flex flex-column">
 
-    <h6 class="card-title">{{product.name}}</h6>
+    <!-- IMAGE -->
+    <div class="img-box">
+        <img [src]="product.image" />
 
-    <p class="text-success fw-bold mb-2">
-      ₹{{product.price}} / {{product.unit}}
-    </p>
+        <!-- 🔥 OFF BADGE -->
+        <div class="badge" *ngIf="product.discount">
+            ₹{{product.discount}} OFF
+        </div>
+        <!-- ADD BUTTON -->
+        <button *ngIf="qty === 0" class="add-btn" (click)="add()">
+            ADD
+        </button>
 
-    <!-- PUSH BUTTON TO BOTTOM -->
-    <div class="mt-auto">
-
-      <!-- ADD BUTTON -->
-      <button 
-        *ngIf="qty === 0"
-        class="btn btn-success w-100"
-        (click)="add()">
-        Add
-      </button>
-
-      <!-- +/- BUTTON -->
-      <div *ngIf="qty > 0" class="d-flex justify-content-between align-items-center">
-
-        <button class="btn btn-outline-danger btn-sm" (click)="remove()">-</button>
-
-        <span class="fw-bold">{{qty}}</span>
-
-        <button class="btn btn-success btn-sm" (click)="add()">+</button>
-
-      </div>
+        <!-- QTY BUTTON -->
+        <div *ngIf="qty > 0" class="qty-box">
+            <button (click)="remove()">−</button>
+            <span>{{qty}}</span>
+            <button (click)="add()">+</button>
+        </div>
 
     </div>
 
-  </div>
+    <!-- PRICE -->
+    <div class="price-row">
+        <span class="price">₹{{product.price}}</span>
+        <span class="old-price">₹{{product.originalPrice}}</span>
+    </div>
 
+    <!-- NAME -->
+    <div class="name">{{product.name}}</div>
+
+    <!-- WEIGHT -->
+    <div class="weight">{{product.quantityLabel}}</div>
 </div>

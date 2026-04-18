@@ -2,49 +2,133 @@
   {
     "id": 1,
     "name": "Tomato",
-    "price": 30,
-    "unit": "kg",
     "category": "vegetable",
-    "image": "assets/images/tomato.w"
+    "price": 10,
+    "originalPrice": 20,
+    "discount": 10,
+    "unit": "gm",
+    "quantityLabel": "250 gm",
+    "image": "assets/images/Tomato-Local.webp",
+    "inStock": true,
+    "available": true
   },
   {
     "id": 2,
     "name": "Onion",
-    "price": 40,
-    "unit": "kg",
     "category": "vegetable",
-    "image": "assets/images/onion.jpg"
+    "price": 30,
+    "originalPrice": 50,
+    "discount": 20,
+    "unit": "kg",
+    "quantityLabel": "1 kg",
+    "image": "assets/images/Onion.webp",
+    "inStock": true,
+    "available": true
   },
   {
     "id": 3,
     "name": "Potato",
-    "price": 35,
-    "unit": "kg",
     "category": "vegetable",
-    "image": "assets/images/potato.jpg"
+    "price": 20,
+    "originalPrice": 40,
+    "discount": 20,
+    "unit": "gm",
+    "quantityLabel": "500 gm",
+    "image": "assets/images/Potato.webp",
+    "inStock": true,
+    "available": true
   },
   {
     "id": 4,
     "name": "Apple",
-    "price": 120,
-    "unit": "kg",
     "category": "fruit",
-    "image": "assets/images/apple.jpg"
+    "price": 100,
+    "originalPrice": 140,
+    "discount": 40,
+    "unit": "kg",
+    "quantityLabel": "1 kg",
+    "image": "assets/images/Baby-Apple-Shimla.webp",
+    "inStock": true,
+    "available": true
   },
   {
     "id": 5,
     "name": "Banana",
-    "price": 50,
-    "unit": "dozen",
     "category": "fruit",
-    "image": "assets/images/banana.jpg"
+    "price": 50,
+    "originalPrice": 60,
+    "discount": 10,
+    "unit": "dozen",
+    "quantityLabel": "1 dozen",
+    "image": "assets/images/Banana-Robusta.webp",
+    "inStock": true,
+    "available": true
   },
   {
     "id": 6,
     "name": "Orange",
-    "price": 80,
-    "unit": "kg",
     "category": "fruit",
-    "image": "assets/images/orange.jpg"
+    "price": 50,
+    "originalPrice": 65,
+    "discount": 15,
+    "unit": "piece",
+    "quantityLabel": "6 pieces",
+    "image": "assets/images/Baby-Orange-Mandarin-.webp",
+    "inStock": true,
+    "available": true
+  },
+
+  {
+    "id": 7,
+    "name": "Spinach (Palak)",
+    "category": "leafy",
+    "price": 10,
+    "originalPrice": 20,
+    "discount": 10,
+    "unit": "bunch",
+    "quantityLabel": "1 bunch",
+    "image": "assets/images/Spinach-Palak-Cleaned-without-roots.webp",
+    "inStock": true,
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "Coriander",
+    "category": "leafy",
+    "price": 15,
+    "originalPrice": 20,
+    "discount": 5,
+    "unit": "bunch",
+    "quantityLabel": "1 bunch",
+    "image": "assets/images/Coriander-Leaves.webp",
+    "inStock": true,
+    "available": true
+  },
+
+  {
+    "id": 9,
+    "name": "Rose Flowers (small)",
+    "category": "flower",
+    "price": 20,
+    "originalPrice": 40,
+    "discount": 20,
+    "unit": "gm",
+    "quantityLabel": "50 gm",
+    "image": "assets/images/Assorted-Roses.webp",
+    "inStock": true,
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "Marigold",
+    "category": "flower",
+    "price": 20,
+    "originalPrice": 40,
+    "discount": 20,
+    "unit": "gm",
+    "quantityLabel": "50 gm",
+    "image": "assets/images/Marigold-Yellow-Flower.webp",
+    "inStock": true,
+    "available": true
   }
 ]

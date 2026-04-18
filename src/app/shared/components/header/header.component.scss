@@ -1,11 +1,15 @@
 .brand-name {
   font-weight: bold;
-  color: #2e7d32;
+  color:  goldenrod;
   font-size: 18px;
+
 }
 
 .navbar {
   padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #1b5e20, #43a047, #81c784);
+  color: white;
 }
 
 input.form-control {
