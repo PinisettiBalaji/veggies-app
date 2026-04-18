@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { SearchService } from 'src/app/core/services/search.service';
 
@@ -11,16 +12,28 @@ import { SearchService } from 'src/app/core/services/search.service';
 export class HeaderComponent {
   cartCount = 0;
 
+  showLogin = false;
 
-  constructor(private searchService: SearchService, private router: Router, private cartService: CartService) { }
+  user: any = null;
+
+
+  constructor(private searchService: SearchService, private authService: AuthService, private router: Router, private cartService: CartService) { }
 
 
 
   ngOnInit() {
+
+    this.authService.user$.subscribe(u => {
+      this.user = u;
+    });
     this.cartService.cart$.subscribe(cart => {
       this.cartCount = cart.reduce((sum, i) => sum + i.qty, 0);
     });
 
+  }
+
+  openLogin() {
+    this.showLogin = true;
   }
 
   goToCart() {
@@ -29,6 +42,10 @@ export class HeaderComponent {
   onSearch(event: any) {
     const value = event.target.value;
     this.searchService.setSearch(value);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,12 +12,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     HeaderComponent,
+    LoginModalComponent,
     
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule   
 ],
   exports: [HeaderComponent,MatIconModule,MatToolbarModule]
 })

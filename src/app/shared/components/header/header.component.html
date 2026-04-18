@@ -20,6 +20,19 @@
                 (input)="onSearch($event)" />
         </form>
 
+        <!-- NOT LOGGED IN -->
+        <button *ngIf="!user" (click)="openLogin()">
+            Login
+        </button>
+
+        <!-- LOGGED IN -->
+        <div *ngIf="user" class="user-info">
+            👤 {{user.mobile}}
+        </div>
+
+        <button *ngIf="user" (click)="logout()">Logout</button>
+
+        <app-login-modal *ngIf="showLogin" (closeModal)="showLogin = false"></app-login-modal>
         <!-- CART -->
         <button class="btn btn-success position-relative cart-icon" (click)="goToCart()">
 

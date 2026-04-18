@@ -1,0 +1,72 @@
+<div class="overlay" *ngIf="show">
+
+    <div class="modal-box">
+
+        <div class="left">
+
+            <!-- MOBILE SCREEN -->
+            <ng-container *ngIf="step === 'mobile'">
+
+                <h1 class="logo">FreshMart</h1>
+
+                <h2>Lowest Prices Everyday<br />in minutes</h2>
+
+                <div class="phone-box">
+                    <span>+91</span>
+                    <input type="text" [(ngModel)]="mobile" maxlength="10" />
+                </div>
+
+                <button class="continue-btn" (click)="goToOtp()">
+                    Continue
+                </button>
+
+            </ng-container>
+
+            <!-- OTP SCREEN -->
+            <ng-container *ngIf="step === 'otp'">
+
+                <!-- BACK -->
+                <div class="back" (click)="step='mobile'">←</div>
+
+                <h2>OTP Verification</h2>
+
+                <p>OTP sent to +91 {{mobile}}</p>
+
+                <!-- OTP INPUT -->
+                <div class="otp-box">
+                    <input *ngFor="let i of [1,2,3,4,5,6]; let idx=index" maxlength="1" [(ngModel)]="otp[idx]"
+                        (input)="moveNext($event, idx)" />
+                </div>
+
+                <!-- TIMER -->
+                <div class="timer">{{timer}}</div>
+
+                <!-- RESEND -->
+                <p class="resend">
+                    Didn't get it?
+                    <span [class.disabled]="!canResend" (click)="canResend && resendOtp()">
+                        Send OTP
+                    </span>
+                </p>
+
+            </ng-container>
+
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="right">
+
+            <div class="close-btn" (click)="close()">✕</div>
+
+            <img src="assets/images/app.png" class="app-img" />
+
+            <h3>Order faster & easier everytime</h3>
+
+            <img src="assets/images/playstore.png" class="store" />
+            <img src="assets/images/appstore.png" class="store" />
+
+        </div>
+
+    </div>
+
+</div>
